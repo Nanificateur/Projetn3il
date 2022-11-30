@@ -9,4 +9,11 @@ jobs:
       - run: ls -ail
       - run : mvn integration-test
       - run: mvn test
-     
+      - uses: SonarSource/sonarcloud-github-action@v1.8
+      
+  
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ a1032563f9632ce4d235a7a4204d974d1343f64b }}
+
