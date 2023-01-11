@@ -7,7 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ls -ail
-      - run : mvn integration-test -Pcoverage        
+      - run : mvn integration-test -Pcoverage
+      - run : mvn jacoco:report -Pcoverage
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
