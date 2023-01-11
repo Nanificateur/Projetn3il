@@ -9,7 +9,7 @@ jobs:
       - run: ls -ail
       - run : mvn integration-test
       - run: mvn test
-      - uses: SonarSource/sonarcloud-github-action@v1.8
+      - run:  mvn clean verify sonar:sonar
       
   
 
