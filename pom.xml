@@ -27,6 +27,13 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.40.0.0</version>
         </dependency>
+             <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+<dependency>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.9.0.2155</version>
+</dependency>
+
     </dependencies>
 
     <properties>
@@ -37,6 +44,9 @@
         target/site/jacoco
        </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
+         
+         
+         
     <profiles>
     <profile>
   <id>coverage</id>
