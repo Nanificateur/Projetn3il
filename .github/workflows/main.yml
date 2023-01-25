@@ -21,4 +21,17 @@ jobs:
         env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      
+      - uses: |
+          git --version
+              Write-Host "git tag $env:tag"
+              **git -c http.extraheader="AUTHORIZATION: bearer $env:SYSTEM_ACCESSTOKEN" tag $env:tag**
+              Write-Host "git push origin $env:tag"
+              git -c http.extraheader="AUTHORIZATION: bearer $env:SYSTEM_ACCESSTOKEN" push origin $env:tag
+            displayName: Git Tag
+            workingDirectory: $(Build.SourcesDirectory)
+            env:
+              tag: '$(PACKAGE_VERSION)'
+              SYSTEM_ACCESSTOKEN: $(system.accesstoken)
+            ignoreLASTEXITCODE: false
+            errorActionPreference: Stop
+            failOnStderr: false
